@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D84B3EC-6B41-46B6-B141-774D2FF99BA7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Command</RootNamespace>
+    <AssemblyName>Command</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddItemCommand.cs" />
+    <Compile Include="AddToCartCommand.cs" />
+    <Compile Include="FinalizePurchaseCommand.cs" />
+    <Compile Include="GenerateBillReportCommand.cs" />
+    <Compile Include="GenerateReorderLevelReportCommand.cs" />
+    <Compile Include="GenerateReportCommand.cs" />
+    <Compile Include="GenerateReshelvedItemsReportCommand.cs" />
+    <Compile Include="GenerateStockReportCommand.cs" />
+    <Compile Include="GenerateTotalSalesReportCommand.cs" />
+    <Compile Include="LoadItemsCommand.cs" />
+    <Compile Include="LoadStockShelvesCommand.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetrieveItemsCommand.cs" />
+    <Compile Include="TransferItemCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{3e397194-2a7f-43ac-b026-379e8f30d282}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Facade\Facade.csproj">
+      <Project>{7df22e40-553c-424f-93ad-91e5bcbccaa1}</Project>
+      <Name>Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Observer\Observer.csproj">
+      <Project>{b3ca9f84-bd5b-4c89-b1e1-e72a46ade98e}</Project>
+      <Name>Observer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Singleton\Singleton.csproj">
+      <Project>{b27e38d5-04d7-4d37-97d5-eb7b4454329c}</Project>
+      <Name>Singleton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Template\Template.csproj">
+      <Project>{c6e983b8-6397-4e64-9a7b-b133f0fda76c}</Project>
+      <Name>Template</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

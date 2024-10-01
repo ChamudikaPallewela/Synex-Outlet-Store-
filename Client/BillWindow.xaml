@@ -1,0 +1,73 @@
+﻿<Window x:Class="Client.BillWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="BillWindow" Height="518" Width="482" Background="White">
+    <Window.Resources>
+        <!-- Define common styles -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <!-- Dark gray text -->
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#28A745"/>
+            <!-- Green border for ListView -->
+            <Setter Property="Foreground" Value="#333"/>
+            <!-- Dark gray text -->
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10,10,10,10"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="#28A745"/>
+            <!-- Green background -->
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Bill Summary" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Foreground="#28A745" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Bill Number:" />
+            <TextBlock Name="BillNumberTextBlock" FontWeight="Bold" />
+
+            <TextBlock Text="Bill Date:" Margin="0,10,0,0" />
+            <TextBlock Name="BillDateTextBlock" FontWeight="Bold" />
+
+            <TextBlock Text="Total Amount:" Margin="0,10,0,0" />
+            <TextBlock Name="TotalAmountTextBlock" FontWeight="Bold" />
+
+            <TextBlock Text="Cash Tendered:" Margin="0,10,0,0" />
+            <TextBlock Name="CashTenderedTextBlock" FontWeight="Bold" />
+
+            <TextBlock Text="Change Due:" Margin="0,10,0,0" />
+            <TextBlock Name="ChangeDueTextBlock" FontWeight="Bold" />
+
+            <ListView Name="ItemsListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Item" DisplayMemberBinding="{Binding ItemName}" Width="100" />
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="70" />
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="70" />
+                        <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Total}" Width="100" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Content="Close" Click="CloseButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
